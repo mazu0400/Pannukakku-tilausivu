@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pannukakku sovellus</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  </head>
+  <!--vasen puoli netti sivusta-->
+  <body>
+    <div class="vasen">
+      <div class="hinta3"><span class="kokonaishinta"></span></div>
+    </div>
+    <!--oikea puoli netti sivusta-->
+    <div class="oikea">
+      <div class="container">
+      <h1>Rakenna oma pannukakkusi</h1>
+      <div class="otsikko">Valitse pannukakku tyyppi</div>
+      <!--pannukakun valinta lohko-->
+    <div class="custom-select-container">
+     <div class="custom-select-wrapper">
+      <div class="pancakeType" id="pancakeType">
+        <div class="suklaa">
+      <div class="option-card"  data-price="5" onclick="setActiveCard(this, 'suklaa')">
+        <img src="pancakeimg/pancakes.png" alt="suklainen" class="card-icon">
+      <h2>suklainen 5€</h2>
+    </div>
+  </div>
+  <div class="perinteinen">
+    <div class="option-card"  data-price="4" onclick="setActiveCard(this, 'perinteinen')">
+      <img src="pancakeimg/pancake copy.png" alt="perinteinen" class="card-icon">
+    <h2>perinteinen 4€</h2>
+  </div>
+</div>
+<div class="siirappi">
+    <div class="option-card"  data-price="5" onclick="setActiveCard(this, 'siirappi')">
+      <img src="pancakeimg/pancake-2.png" alt="Siirappinen" class="card-icon">
+    <h2>Siirappinen 5€</h2>
+    </div>
+   </div>
+  </div>
+</div>
+
+      <!--täyte,lisukkeet,hillot lista osio koodista myös niiden valinnat-->
+      <div class="täytteet-lista">
+<h3>Valitse täytteet</h3>
+    <div class="täytteet">
+       <div class="valintarivi"><label><input type="checkbox" name="täytteet" value="mansikka"><span>Mansikka</span></label><span class="hinta">+1€</span></div>
+       <div class="valintarivi"><label><input type="checkbox" name="täytteet" value="kirsikka"><span>Kirsikka</span></label><span class="hinta">+1€</span></div>
+       <div class="valintarivi"><label><input type="checkbox" name="täytteet" value="banaani"><span>Banaani</span></label><span class="hinta">+1€</span></div>
+       <div class="valintarivi"><label><input type="checkbox" name="täytteet" value="mustikka"><span>Mustikka</span></label><span class="hinta">+1€</span></div>
+       <div class="valintarivi"><label><input type="checkbox" name="täytteet" value="nutella"><span>Nutella</span></label><span class="hinta">+1€</span></div>
+       <div class="valintarivi"><label><input type="checkbox" name="täytteet" value="vadelma"><span>Vadelma</span></label><span class="hinta">+1€</span></div>
+       <div class="valintarivi"><label><input type="checkbox" name="täytteet" value="maapähkinävoi"><span>Maapähkinävoi</span></label><span class="hinta">+1€</span></div>
+       <div class="valintarivi"><label><input type="checkbox" name="täytteet" value="suklaapähkinävoi"><span>Suklaapähkinävoi</span></label><span class="hinta">+1€</span></div>
+     </div>
+    </div>
+
+  <div class="lisukkeet-lista">
+      <h4>Valitse lisukkeet</h4>
+      <div id="lisukkeet">
+        <div class="valintarivi"><label><input type="checkbox" name="lisukkeet" value="kermavaahto" ><span>Kermavaahto</span></label><span class="hinta">+0.50€</span></div>
+        <div class="valintarivi"><label><input type="checkbox" name="lisukkeet" value="kinuskikastike" ><span>Kinuskikastike</span></label><span class="hinta">+0.50€</span></div>
+        <div class="valintarivi"><label><input type="checkbox" name="lisukkeet" value="mansikkakastike" ><span>Mansikkakastike</span></label><span class="hinta">+0.50€</span></div>
+        <div class="valintarivi"><label><input type="checkbox" name="lisukkeet" value="mustikkakastike" ><span>Mustikkakastike</span></label><span class="hinta">+0.50€</span></div>
+        <div class="valintarivi"><label><input type="checkbox" name="lisukkeet" value="vaahterasiirappi" ><span>Vaahterasiirappi</span></label><span class="hinta">+0.50€</span></div>
+        <div class="valintarivi"><label><input type="checkbox" name="lisukkeet" value="suklaakastike" ><span>Suklaakastike</span></label><span class="hinta">+0.50€</span></div>
+        <div class="valintarivi"><label><input type="checkbox" name="lisukkeet" value="vadelmakastike"><span>Vadelmakastike</span></label><span class="hinta">+0.50€</span></div>
+        <div class="valintarivi"><label><input type="checkbox" name="lisukkeet" value="lakritsakastike" ><span>Lakritsakastike</span></label><span class="hinta">+0.50€</span></div>
+        <div class="valintarivi"><label><input type="checkbox" name="lisukkeet" value="popcornkastike" ><span>Popcornkastike</span></label><span class="hinta">+0.50€</span></div>
+      </div>
+  </div>
+  <div class="hillo-lista">
+      <h5>Valitse hillo</h5>
+      <div id="hillo">
+        <div class="valintarivi"><label><input type="checkbox" name="hillo" value="mansikkahillo" ><span>Mansikkahillo</span></label><span class="hinta">+0.75€</span></div>
+        <div class="valintarivi"><label><input type="checkbox" name="hillo" value="mustikkahillo" ><span>Mustikkahillo</span></label><span class="hinta">+0.75€</span></div>
+        <div class="valintarivi"><label><input type="checkbox" name="hillo" value="puolukkahillo" ><span>Puolukkahillo</span></label><span class="hinta">+0.75€</span></div>
+        <div class="valintarivi"><label><input type="checkbox" name="hillo" value="vadelmahillo" ><span>Vadelmahillo</span></label><span class="hinta">+0.75€</span></div>
+        <div class="valintarivi"><label><input type="checkbox" name="hillo" value="kirsikkahillo" ><span>Kirsikkahillo</span></label><span class="hinta">+0.75€</span></div>
+      </div>
+    </div>
+<!--tilaus näkymä yhteen veto ja asiakastiedot-->
+    <div id="orderPopup" class="popup hidden">
+      <div class="popup-content">
+        <span id="closePopup" class="close">&times;</span>
+        <h6>Yhteenveto</h6>
+        <div id="orderSummary"></div>
+        <label>Etunimi:
+          <input type="text" id="firstName" placeholder="Etunimi"/>
+          <span class="error-message"></span>
+        </label>
+        <label>Sukunimi:
+          <input type="text" id="lastName" placeholder="Sukunimi" />
+          <span class="error-message"></span>
+        </label>
+        <label>Sähköposti:
+          <input type="email" id="email" name="email" placeholder="esimekki@gmail.com"/>
+          <span class="error-message"></span>
+        </label>
+        <label>Puhelin:
+          <input type="tel" id="phone" name="phone" placeholder="Puhelin" />
+          <span class="error-message"></span>
+        </label>
+        <label>Osoite:
+          <input type="text" id="address" placeholder="Osoite"/>
+          <span class="error-message"></span>
+        </label>
+        <label>Postinumero:
+          <input type="text" id="postalCode" placeholder="01800"/>
+          <span class="error-message"></span>
+        </label>
+        <label>Kaupunki:
+          <input type="text" id="city" placeholder="Helsinki" />
+          <span class="error-message"></span>
+        </label>
+        <label>Valitse toimitustapa:
+          <select id="deliveryMethod">
+            <option value="pickup">Nouto</option>
+            <option value="delivery">Kotiin toimitus</option>
+          </select>
+        </label>
+        <label>Valitse maksutapa:
+          <select id="paymentMethod">
+            <option value="creditCard">Luottokortti</option>
+            <option value="paypal">PayPal</option>
+            <option value="bankTransfer">Pankkisiirto</option>
+            <option value="mobilePay">mobilePay</option>
+            <option value="cash">maksa noudettaessa</option>
+            <option value="invoice">Lasku</option>
+            <option value="giftCard">Lahjakortti</option>
+            <option value="crypto">Kryptovaluutta</option>
+
+          </select>
+        </label>
+        <label>Valitse toimitusaika:
+          <input type="datetime-local" id="deliveryTime" required />
+          <span class="error-message"></span>
+        </label>
+        <label>Toimitus osoite:
+          <input type="text" id="deliveryAddress" required />
+          <span class="error-message"></span>
+        </label>
+        <label>Postinumero:
+          <input type="text" id="deliveryPostalCode" required />
+          <span class="error-message"></span>
+        </label>
+        <label>kaupunki:
+          <input type="text" id="deliveryCity" required />
+          <span class="error-message"></span>
+        </label>
+        <label>Erityisruokavaliot:
+          <input type="text" id="specialDiet" />
+        </label>
+        <label>Lisätiedot:
+          <textarea id="additionalInfo" rows="4"></textarea>
+        </label>
+        <!--tilauksen viimeistely napit-->
+        <div class="popup-buttons">
+          <button id="finalizeOrderBtn">Lähetä tilaus</button>
+          <button id="clearSelectionsBtn">Tyhjennä valinnat</button>
+      </div>
+    </div>
+  </div>
+    <!--hinnan ja määrän lopullinen valinta ennen tilaus näkymää-->
+    <div class="price-wrapper">
+      <div class="amount-controls">
+        <button id="minusBtn">-</button>
+        <span id="quantity">1</span>
+        <button id="plusBtn">+</button>
+    </div>
+    <button id="orderBtn">Tilaa</button>
+    <div class="price-display">
+      <p>kokonaishinta: <span id="totalPrice" class="kokonaishinta"><0</span></p>
+  </div>
+</div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
+
