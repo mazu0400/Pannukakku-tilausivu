@@ -22,7 +22,7 @@ html {
 @media only screen and (max-width: 413px) {
   #plusBtn,
   #minusBtn {
-    padding: 10%;
+    padding: 7%;
   }
 }
 @media only screen and (max-width: 413px) {
@@ -209,6 +209,7 @@ input[type="checkbox"]:checked + span {
 }
 /*oikean puolen asettelu yms*/
 .oikea {
+  position: relative;
   width: 100%;
   height: auto;
   background-color: rgb(229, 229, 229);
@@ -297,6 +298,7 @@ h6 {
 }
 
 .popup-content {
+  gap: 20px;
   background-color: rgb(255, 255, 255);
   padding: 40px;
   border-radius: 12px;
@@ -309,6 +311,40 @@ h6 {
   flex-direction: column;
   max-height: 90vh;
   overflow-y: auto;
+}
+#openLoginPopup {
+  position: absolute;
+  display: flex;
+  right: 5px;
+  top: 5px;
+  padding: 3px 3px;
+  background-color: #f0f0f0;
+  background: rgb(142, 142, 142);
+  border: none;
+  border-radius: 100px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+#openLoginPopup:hover {
+  background-color: #ddd;
+  transform: scale(1.05);
+}
+
+#loginPopup.hidden {
+  display: none;
+}
+#loginButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+}
+
+#openLoginPopup img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
 }
 .close {
   position: absolute;

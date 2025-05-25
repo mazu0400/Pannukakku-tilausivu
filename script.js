@@ -203,12 +203,7 @@ function validateForm() {
     "#address",
     "#postalCode",
     "#city",
-    "#deliveryMethod",
     "#paymentMethod",
-    "#deliveryTime",
-    "#deliveryAddress",
-    "#deliveryPostalCode",
-    "#deliveryCity",
   ];
   requiredFields.forEach((selector) => {
     const field = document.querySelector(selector);
@@ -238,16 +233,67 @@ function validateForm() {
 }
 
 //saatetaan tilaus loppuun ja näytetään viestit näytölle ja tyhjennetään valinnat lähetyksen jälkeen
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("openLoginPopup").addEventListener("click", () => {
+    const loginPopup = document.getElementById("loginPopup");
+    loginPopup.classList.remove("hidden");
+    loginPopup.classList.add("show");
+  });
+  document.getElementById("closeLoginPopup").addEventListener("click", () => {
+    const loginPopup = document.getElementById("loginPopup");
+    loginPopup.classList.remove("show");
+    loginPopup.classList.add("hidden");
+  });
+  document.getElementById("loginButton").addEventListener("click", () => {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
 
-finalizeOrderBtn.addEventListener("click", () => {
-  if (!validateForm()) {
-    alert("Täytä kaikki pakolliset kentät.");
-    return;
-  }
-  alert("Kiitos tilauksestasi! Tilaus vahvistus on lähetetty sähköpostiisi.");
-  clearForm();
+    if (username === "kokki" && password === "salasana") {
+      window.location.href = "tilaussivu.html";
+    } else {
+      alert("väärä käyttäjätunnus tai salasana.");
+    }
+  });
+  const finalizeOrderBtn = document.getElementById("finalizeOrderBtn");
+  finalizeOrderBtn.addEventListener("click", () => {
+    if (!validateForm()) {
+      alert("Täytä kaikki pakolliset kentät.");
+      return;
+    }
+
+    const firstName = document.getElementById("firstName").value.trim();
+    const lastName = document.getElementById("lastName").value.trim();
+    const deliveryMethod = document.querySelector("#deliveryMethod").value;
+
+    const orderId = `T${Date.now()}${Math.floor(Math.random() * 1000)}`;
+
+    const orderData = {
+      id: Date.now(),
+      firstName: document.querySelector("#firstName").value.trim(),
+      lastName: document.querySelector("#lastName").value.trim(),
+      pancake: selectedPancakeName,
+      fillings: [...fillingsCheckboxes]
+        .filter((cb) => cb.checked)
+        .map((cb) => cb.nextElementSibling.textContent),
+      extras: [...extraCheckboxes]
+        .filter((cb) => cb.checked)
+        .map((cb) => cb.nextElementSibling.textContent),
+      jams: [...jamCheckboxes]
+        .filter((cb) => cb.checked)
+        .map((cb) => cb.nextElementSibling.textContent),
+      quantity: quantity,
+      deliveryMethod: document.querySelector("#deliveryMethod").value,
+      price: totalPriceDisplay.textContent,
+      status: "vastaanotettu",
+      timestamp: new Date().toLocaleString(),
+    };
+    let orders = JSON.parse(localStorage.getItem("orders")) || [];
+    orders.push(orderData);
+    localStorage.setItem("orders", JSON.stringify(orders));
+    alert("Kiitos tilauksestasi! Tilaus vahvistus on lähetetty sähköpostiisi.");
+    clearForm();
+  });
+  //tämä tyhjentää kaikki valinnat ja palauttaa lomakkeen oletusasetuksiin
+
+  clearSelectionsBtn.addEventListener("click", clearForm);
 });
-
-//tämä tyhjentää kaikki valinnat ja palauttaa lomakkeen oletusasetuksiin
-
-clearSelectionsBtn.addEventListener("click", clearForm);

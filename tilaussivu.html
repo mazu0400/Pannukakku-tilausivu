@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kokin tilaus näkymä</title>
+    <link rel="stylesheet" href="tilaussivu.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="left-panel">
+        <div class="scroll-header">
+          <a href="index.html" class="kuvapainike">
+            <img src="login.png" alt="Takaisin etusivulle" />
+          </a>
+          <h1>Tilaukset</h1>
+        </div>
+        <div class="scrollable-container">
+          <div id="ordersContainer"></div>
+          <button id="clearOrdersBtn">Tyhjennä Tilaukset</button>
+
+          <span class="status.indicator status-työnalla"></span>
+
+          <button id="openOldOrdersBtn">Näytä vanhat tilaukset</button>
+        </div>
+      </div>
+      <div id="pancakeimg" class="pancakeimg">
+        <img
+          src="Foodiesfeed.com_pouring-honey-on-pancakes-with-walnuts.jpg"
+          alt="pancakeimg"
+        />
+      </div>
+    </div>
+    <div id="oldOrdersPopup" class="popup hidden">
+      <div class="popup-content">
+        <span id="closeOldOrdersPopup" class="close-btn">&times;</span>
+        <h2>Vanhat tilaukset</h2>
+        <input
+          type="text"
+          id="searchOldOrders"
+          placeholder="Hae nimellä tai tilaus id:llä"
+        />
+        <div id="oldOrdersList" class="orders-list"></div>
+        <button id="clearArchiveBtn">Tyhjennä arkisto</button>
+      </div>
+    </div>
+    <script src="tilaussivu.js" defer></script>
+  </body>
+</html>

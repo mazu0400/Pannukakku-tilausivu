@@ -11,11 +11,25 @@
   </head>
   <!--vasen puoli netti sivusta-->
   <body>
+   <!--linkki kokin näkymään-->
+    <!--linkki kokin näkymään-->
     <div class="vasen">
       <div class="hinta3"><span class="kokonaishinta"></span></div>
     </div>
     <!--oikea puoli netti sivusta-->
     <div class="oikea">
+      <button id="openLoginPopup"title="Kirjaudu kokkina">
+        <img src="pancakeimg/user.png" alt="Kirjaudu kokkina">
+      </button>
+      <div id="loginPopup" class="popup hidden">
+        <div class="popup-content">
+          <span id="closeLoginPopup" class="close-btn">&times;</span>
+          <h2>Kirjaudu kokkina</h2>
+          <input type="text" id="username" placeholder="Käyttäjätunnus">
+          <input type="password" id="password" placeholder="Salasana">
+          <button id="loginButton">Kirjaudu</button>
+        </div>
+      </div>
       <div class="container">
       <h1>Rakenna oma pannukakkusi</h1>
       <div class="otsikko">Valitse pannukakku tyyppi</div>
@@ -138,19 +152,15 @@
         </label>
         <label>Valitse toimitusaika:
           <input type="datetime-local" id="deliveryTime" required />
-          <span class="error-message"></span>
         </label>
         <label>Toimitus osoite:
           <input type="text" id="deliveryAddress" required />
-          <span class="error-message"></span>
         </label>
         <label>Postinumero:
           <input type="text" id="deliveryPostalCode" required />
-          <span class="error-message"></span>
         </label>
         <label>kaupunki:
           <input type="text" id="deliveryCity" required />
-          <span class="error-message"></span>
         </label>
         <label>Erityisruokavaliot:
           <input type="text" id="specialDiet" />
