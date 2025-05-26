@@ -7,4 +7,5 @@ Harjoittelin myös css:sällä erinäisiä html tietojen asettelu tekniikoita se
 Kokin näkymään tulee kirjautua pannukakku-tilaussivun avulla. Tilaussivun yläkulmassa on painike josta pääsee kirjautumaan kokin näkymään.
 
 Käyttäjätunnus: kokki
+
 Salasana: salasana
